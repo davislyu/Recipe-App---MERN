@@ -3,6 +3,7 @@ import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { ToastContainer, toast } from "react-toastify";
 
 export const CreateRecipe = () => {
   const userID = useGetUserID();
@@ -47,10 +48,10 @@ export const CreateRecipe = () => {
         }
       );
 
-      alert("Recipe Created");
+      toast.success("Recipe Created", { theme: "dark" });
       navigate("/");
     } catch (error) {
-      console.error(error);
+      toast.error("Something Failed, Please make sure to fil all the input fields", { theme: "dark" });
     }
   };
 
@@ -59,20 +60,9 @@ export const CreateRecipe = () => {
       <h2>Create Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={recipe.name}
-          onChange={handleChange}
-        />
+        <input type="text" id="name" name="name" value={recipe.name} onChange={handleChange} />
         <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          value={recipe.description}
-          onChange={handleChange}
-        ></textarea>
+        <textarea id="description" name="description" value={recipe.description} onChange={handleChange}></textarea>
         <label htmlFor="ingredients">Ingredients</label>
         {recipe.ingredients.map((ingredient, index) => (
           <input
@@ -87,28 +77,11 @@ export const CreateRecipe = () => {
           Add Ingredient
         </button>
         <label htmlFor="instructions">Instructions</label>
-        <textarea
-          id="instructions"
-          name="instructions"
-          value={recipe.instructions}
-          onChange={handleChange}
-        ></textarea>
+        <textarea id="instructions" name="instructions" value={recipe.instructions} onChange={handleChange}></textarea>
         <label htmlFor="imageUrl">Image URL</label>
-        <input
-          type="text"
-          id="imageUrl"
-          name="imageUrl"
-          value={recipe.imageUrl}
-          onChange={handleChange}
-        />
+        <input type="text" id="imageUrl" name="imageUrl" value={recipe.imageUrl} onChange={handleChange} />
         <label htmlFor="cookingTime">Cooking Time (minutes)</label>
-        <input
-          type="number"
-          id="cookingTime"
-          name="cookingTime"
-          value={recipe.cookingTime}
-          onChange={handleChange}
-        />
+        <input type="number" id="cookingTime" name="cookingTime" value={recipe.cookingTime} onChange={handleChange} />
         <button type="submit">Create Recipe</button>
       </form>
     </div>

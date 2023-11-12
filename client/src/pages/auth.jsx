@@ -39,12 +39,11 @@ const Login = () => {
         position: "bottom-center",
       });
     } catch (error) {
-      if (error.response && error.response.status === 410) {
+      if (error.response && error.response.status === 400) {
         toast.error("Incorrect Information, Please try again!", {
           theme: "dark",
           position: "bottom-center",
         });
-        console.log("already in the system");
       }
     }
   };
