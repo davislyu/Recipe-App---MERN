@@ -36,11 +36,13 @@ const Login = () => {
       navigate("/");
       toast.success(`Hello ${username}! have a great day!`, {
         theme: "dark",
+        position: "bottom-center",
       });
     } catch (error) {
       if (error.response && error.response.status === 410) {
         toast.error("Incorrect Information, Please try again!", {
           theme: "dark",
+          position: "bottom-center",
         });
         console.log("already in the system");
       }
@@ -71,7 +73,9 @@ const Login = () => {
             placeholder="Enter Password"
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="button-49">
+          Login
+        </button>
       </form>
     </div>
   );
@@ -101,12 +105,18 @@ const Register = () => {
       clearInputs();
     } catch (error) {
       if (error.response && error.response.status === 409) {
-        toast.warning("User already registered. Please try another username.");
+        toast.warning("User already registered. Please try another username.", {
+          theme: "dark",
+          position: "bottom-center",
+        });
         console.log("already in the system");
         clearInputs();
       } else {
         console.error(error);
-        toast.error("Registration failed. Please try again.");
+        toast.error("Registration failed. Please try again.", {
+          theme: "dark",
+          position: "bottom-center",
+        });
         clearInputs();
       }
     }
@@ -136,7 +146,9 @@ const Register = () => {
             placeholder="Enter Password"
           />
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" className="button-49">
+          Register
+        </button>
       </form>
     </div>
   );
