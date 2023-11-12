@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export const Auth = () => {
   return (
     <div className="auth">
+      {" "}
       <Login />
       <Register />
     </div>
@@ -32,8 +34,16 @@ const Login = () => {
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.userID);
       navigate("/");
+      toast.success(`Hello ${username}! have a great day!`, {
+        theme: "dark",
+      });
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.status === 410) {
+        toast.error("Incorrect Information, Please try again!", {
+          theme: "dark",
+        });
+        console.log("already in the system");
+      }
     }
   };
 
@@ -48,6 +58,7 @@ const Login = () => {
             id="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
+            placeholder="Enter Username"
           />
         </div>
         <div className="form-group">
@@ -57,6 +68,7 @@ const Login = () => {
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            placeholder="Enter Password"
           />
         </div>
         <button type="submit">Login</button>
@@ -68,7 +80,10 @@ const Login = () => {
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const clearInputs = () => {
+    setPassword("");
+    setUsername("");
+  };
   const [_, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
 
@@ -79,9 +94,21 @@ const Register = () => {
         username,
         password,
       });
-      alert("Registration Completed! Now login.");
+      toast.success("Registration Completed! Now login.", {
+        theme: "dark",
+        position: "bottom-center",
+      });
+      clearInputs();
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.status === 409) {
+        toast.warning("User already registered. Please try another username.");
+        console.log("already in the system");
+        clearInputs();
+      } else {
+        console.error(error);
+        toast.error("Registration failed. Please try again.");
+        clearInputs();
+      }
     }
   };
 
@@ -96,6 +123,7 @@ const Register = () => {
             id="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
+            placeholder="Enter Username"
           />
         </div>
         <div className="form-group">
@@ -105,6 +133,7 @@ const Register = () => {
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            placeholder="Enter Password"
           />
         </div>
         <button type="submit">Register</button>

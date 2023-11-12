@@ -13,13 +13,24 @@ export const Navbar = () => {
   };
   return (
     <div className="navbar">
-      <Link to="/">Home</Link>
-      <Link to="/create-recipe">Create Recipe</Link>
-      <Link to="/saved-recipes">Saved Recipes</Link>
+      <Link className="lnk" to="/">
+        Home
+      </Link>
+      <Link className="lnk" to="/create-recipe">
+        Create Recipe
+      </Link>
+      <Link className="lnk" to="/saved-recipes">
+        Saved Recipes
+      </Link>
       {!cookies.access_token ? (
-        <Link to="/auth">Login/Register</Link>
+        <Link className="lnk" to="/auth">
+          Login/Register
+        </Link>
       ) : (
-        <button onClick={logout}> Logout </button>
+        <a className="lnk" onClick={logout}>
+          {" "}
+          Logout{" "}
+        </a>
       )}
     </div>
   );
