@@ -396,14 +396,79 @@ p {
 .single-element img {
   box-sizing: border-box;
   width: 100%; /* Full width of the container */
-  height: 400px; /* Fixed height */
-  object-fit: fill; /* This will cover the area without distorting the aspect ratio */
+  height: auto; /* Adjust height automatically to maintain aspect ratio */
+  object-fit: cover; /* Cover the area without distorting the aspect ratio */
   border-radius: 12px;
   margin-top: 10px;
 }
 
 .single-element p {
+  font-size: 1rem;
   color: white;
+  margin-bottom: 10px;
+}
+.instructions {
+  width: 100%;
+}
+.instructions p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+  padding: 0px;
+}
+.saved-res-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(49, 49, 49, 0.082);
+  backdrop-filter: blur(50px);
+  border-radius: 2em;
+  color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 27%;
+}
+
+.saved-res-container h1 {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.saved-res-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.saved-res-element {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.saved-res-element h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.saved-res-element img {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.saved-res-element p {
+  font-size: 1rem;
   margin-bottom: 10px;
 }
 
