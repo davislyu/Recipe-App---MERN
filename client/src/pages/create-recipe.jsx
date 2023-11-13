@@ -51,7 +51,7 @@ export const CreateRecipe = () => {
       toast.success("Recipe Created", { theme: "dark" });
       navigate("/");
     } catch (error) {
-      toast.error("Something Failed, Please make sure to fil all the input fields", { theme: "dark" });
+      toast.error("Something Failed, Please make sure to Login and  to fill all the input fields", { theme: "dark" });
     }
   };
 
