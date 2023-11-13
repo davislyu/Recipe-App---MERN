@@ -32,11 +32,16 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
+  gap: 40px;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .auth-container {
   border: 1px solid rgb(229, 229, 229, 0.4);
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -44,13 +49,14 @@ body {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin: 0 150px;
   width: fit-content;
   background-color: rgba(49, 49, 49, 0.082);
   backdrop-filter: blur(50px);
   border-radius: 2em;
   color: white;
   flex-wrap: wrap;
+  width: 40vh;
+  padding: 3rem;
 }
 
 .auth-container h2 {
@@ -102,12 +108,6 @@ body {
   color: rgba(255, 0, 0, 0.697);
 }
 
-@media (max-width: 850px) {
-  .auth {
-    flex-direction: column;
-  }
-}
-
 label {
   font-weight: bold;
   margin-bottom: 5px;
@@ -118,6 +118,10 @@ input {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
+}
+
+.nav-container {
+  min-width: 100vw;
 }
 
 .navbar {
@@ -131,6 +135,12 @@ input {
   color: white;
   text-decoration: none;
   font-weight: 200;
+}
+.navbar .lnk {
+  display: flex;
+  margin: 1em 1em 1em 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -216,8 +226,7 @@ p {
   text-decoration: none;
   text-rendering: geometricprecision;
   text-transform: uppercase;
-  transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
-    background-color 100ms cubic-bezier(0.694, 0, 0.335, 1),
+  transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1), background-color 100ms cubic-bezier(0.694, 0, 0.335, 1),
     color 100ms cubic-bezier(0.694, 0, 0.335, 1);
   user-select: none;
   -webkit-user-select: none;
@@ -254,4 +263,232 @@ p {
 .button-49 span {
   z-index: 1;
   position: relative;
+}
+.create-recipe {
+  border: 1px solid rgb(229, 229, 229, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 35px 55px;
+  background-color: rgba(49, 49, 49, 0.082);
+  backdrop-filter: blur(50px);
+  border-radius: 2em;
+  color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Centering in the parent element */
+  width: fit-content;
+}
+
+.create-recipe h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create-recipe input[type="text"],
+.create-recipe input[type="number"],
+.create-recipe textarea {
+  width: 29vh; /* Adjust width as needed */
+  background-color: transparent;
+  border: 2px solid rgba(225, 225, 225, 0.2);
+  outline: none;
+  font-size: 18px;
+  color: white;
+  border-radius: 6px;
+  padding: 15px 15px 15px 40px;
+  margin-bottom: 20px; /* Space between form fields */
+}
+
+.create-recipe input::placeholder,
+.create-recipe textarea::placeholder {
+  color: rgba(255, 255, 255, 0.742);
+}
+
+.create-recipe button {
+  width: 100%;
+  height: 45px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid rgba(225, 225, 225, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.create-recipe label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.home-container {
+  border: 1px solid rgb(229, 229, 229, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 35px 55px;
+  background-color: rgba(49, 49, 49, 0.082);
+  backdrop-filter: blur(50px);
+  border-radius: 2em;
+  color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 27%;
+}
+
+.home-container h1 {
+  font-size: 48px; /* Larger than h2 for hierarchy */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-elements {
+  list-style: none;
+  padding: 0;
+  width: 100%; /* Adjust as needed */
+}
+
+.single-element {
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly more opaque for readability */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.single-element h2 {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.single-element button {
+  background-color: transparent;
+  border: 2px solid rgba(225, 225, 225, 0.2);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.single-element .ingredient-list,
+.single-element .instructions {
+  margin-bottom: 15px;
+}
+
+.single-element .ingredient-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.single-element .ingredient-list li {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+
+.single-element img {
+  box-sizing: border-box;
+  width: 100%; /* Full width of the container */
+  height: 400px; /* Fixed height */
+  object-fit: fill; /* This will cover the area without distorting the aspect ratio */
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.single-element p {
+  color: white;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1320px) {
+  .auth {
+    flex-direction: column;
+    gap: 3em;
+    width: 100vh;
+  }
+  .auth-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 1320px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    width: 100vh;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+  }
+  .auth {
+    margin: 0 10%;
+  }
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100;
+    height: 100vh;
+    background-size: cover;
+    /* opacity: 0.5; Adjust the opacity here */
+    z-index: -1;
+  }
+}
+@media (max-width: 1000px) {
+  .navbar {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .auth {
+    /* Adjust layout for mobile */
+    flex-direction: column;
+    padding: 0;
+    gap: 20px;
+  }
+
+  .auth-container {
+    /* Adjust width and padding for smaller screens */
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .form-group input {
+    /* Adjust input width for mobile */
+    width: 100%;
+  }
+
+  .navbar {
+    /* Adjust navbar layout for mobile */
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .navbar .lnk {
+    /* Adjust navbar links for easier touch navigation */
+    margin: 0.5rem;
+    font-size: larger;
+  }
+
+  .create-recipe {
+    /* Adjust recipe creation form width */
+    width: 90%;
+  }
 }

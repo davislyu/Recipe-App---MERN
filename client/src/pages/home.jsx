@@ -46,11 +46,11 @@ export const Home = () => {
   const isRecipeSaved = (id) => savedRecipes.includes(id);
 
   return (
-    <div>
+    <div className="home-container">
       <h1>Recipes</h1>
-      <ul>
+      <ul className="home-elements">
         {recipes.map((recipe) => (
-          <li key={recipe._id}>
+          <li className="single-element" key={recipe._id}>
             <div>
               <h2>{recipe.name}</h2>
               <button onClick={() => saveRecipe(recipe._id)} disabled={isRecipeSaved(recipe._id)}>
@@ -59,7 +59,7 @@ export const Home = () => {
               <div className="ingredient-list">
                 <ul>
                   {recipe.ingredients.map((ing, idx) => (
-                    <li key={idx}>{ing}</li>
+                    <li key={idx}> - {ing}</li>
                   ))}
                 </ul>
               </div>
