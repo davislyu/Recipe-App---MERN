@@ -1,5 +1,3 @@
-/* If you're using other form elements like textarea or select, add them similarly */
-
 .App {
   display: flex;
   flex-direction: column;
@@ -22,7 +20,7 @@ body {
   height: 100vh;
   background-image: url("./assets/darkRas.jpg");
   background-size: cover;
-  /* opacity: 0.5; Adjust the opacity here */
+
   z-index: -1;
 }
 
@@ -276,7 +274,7 @@ p {
   border-radius: 2em;
   color: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin: 20px auto; /* Centering in the parent element */
+  margin: 20px auto;
   width: fit-content;
 }
 
@@ -297,7 +295,7 @@ p {
   color: white;
   border-radius: 6px;
   padding: 15px 15px 15px 40px;
-  margin-bottom: 20px; /* Space between form fields */
+  margin-bottom: 20px;
 }
 
 .create-recipe input::placeholder,
@@ -341,7 +339,7 @@ p {
 }
 
 .home-container h1 {
-  font-size: 48px; /* Larger than h2 for hierarchy */
+  font-size: 48px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -349,11 +347,11 @@ p {
 .home-elements {
   list-style: none;
   padding: 0;
-  width: 100%; /* Adjust as needed */
+  width: 100%;
 }
 
 .single-element {
-  background-color: rgba(255, 255, 255, 0.1); /* Slightly more opaque for readability */
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
@@ -395,9 +393,9 @@ p {
 
 .single-element img {
   box-sizing: border-box;
-  width: 100%; /* Full width of the container */
-  height: auto; /* Adjust height automatically to maintain aspect ratio */
-  object-fit: cover; /* Cover the area without distorting the aspect ratio */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
   border-radius: 12px;
   margin-top: 10px;
 }
@@ -494,11 +492,13 @@ p {
 
 @media (max-width: 1000px) {
   .navbar {
-    width: 100vh;
+    width: 100%;
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    flex-direction: column;
     font-size: 30px;
+  }
+  .background-image {
+    width: 100%;
   }
   .auth {
     margin: 0 10%;
@@ -510,50 +510,36 @@ p {
     width: 100;
     height: 100vh;
     background-size: cover;
-    /* opacity: 0.5; Adjust the opacity here */
+
     z-index: -1;
-  }
-}
-@media (max-width: 1000px) {
-  .navbar {
-    width: 100%;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .auth {
-    /* Adjust layout for mobile */
-    flex-direction: column;
-    padding: 0;
-    gap: 20px;
-  }
-
-  .auth-container {
-    /* Adjust width and padding for smaller screens */
+  .auth-container,
+  .create-recipe,
+  .home-container,
+  .saved-res-container {
     width: 90%;
     padding: 2rem;
   }
-
-  .form-group input {
-    /* Adjust input width for mobile */
-    width: 100%;
-  }
-
   .navbar {
-    /* Adjust navbar layout for mobile */
-    flex-direction: column;
     height: auto;
     padding: 0.5rem 0;
   }
-
   .navbar .lnk {
-    /* Adjust navbar links for easier touch navigation */
     margin: 0.5rem;
     font-size: larger;
   }
+}
 
-  .create-recipe {
-    /* Adjust recipe creation form width */
-    width: 90%;
+@media (min-width: 768px) and (max-width: 1320px) {
+  .glass-container {
+    max-width: 75%;
+  }
+
+  .home-container,
+  .saved-res-container {
+    width: 70%;
   }
 }

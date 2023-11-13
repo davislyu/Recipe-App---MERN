@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -38,6 +39,7 @@ export const Home = () => {
         userID,
       });
       setSavedRecipes(response.data.savedRecipes);
+      toast.success("Successfully saved recipe", { theme: "dark" });
     } catch (err) {
       console.log(err);
     }
